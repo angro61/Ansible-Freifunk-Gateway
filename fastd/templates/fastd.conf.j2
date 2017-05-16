@@ -40,7 +40,7 @@ status socket "/tmp/fastd-status";
 # Configure a shell command that is run on connection attempts by unknown peers (true means, all attempts are accepted)
 # on verify "true";
 on verify "
-  /bin/bash /var/gateway-ffms/fastd/verify.sh $PEER_KEY
+  /bin/bash /var/gateway-ffsu/fastd/verify.sh $PEER_KEY
 ";
 
 # Configure a shell command that is run when fastd comes up
