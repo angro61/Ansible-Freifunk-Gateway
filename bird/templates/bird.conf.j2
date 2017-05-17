@@ -78,8 +78,8 @@ protocol ospf {
 		interface "bat*" {
 			stub;
 		};
-{% if ffsu_tun_to is defined %}
-{% for host in ffsu_tun_to %}
+{% if ffms_tun_to is defined %}
+{% for host in ffms_tun_to %}
 {% if "cost" in  host %}
         interface "gre-{{host.host_name}}" {
             cost {{host.cost}};
@@ -90,8 +90,8 @@ protocol ospf {
 {% endfor %}
 {% endif %}
 {% for host in groups['gateways'] %}
-{% if 'ffsu_tun_to' in hostvars[host] %}
-{% for link in hostvars[host].ffsu_tun_to%}
+{% if 'ffms_tun_to' in hostvars[host] %}
+{% for link in hostvars[host].ffms_tun_to%}
 {% if 'host_name' in link and link.host_name == inventory_hostname %}
 {% if "cost" in  link %}
         interface "gre-{{host}}" {
@@ -105,7 +105,7 @@ protocol ospf {
 {% endif %}
 {% endfor %}
 		interface "bck-*";
-{% if ffsu_tun_to is defined %}
+{% if ffms_tun_to is defined %}
 		interface "lo" {
 			stub;
 		};

@@ -1,5 +1,5 @@
 # This file is managed by ansible, don't make changes here - they will be overwritten.
-{% for host in gre_ffsu.groups %}
+{% for host in gre_ffms.groups %}
 {% if ansible_ssh_host != hostvars[host].ansible_ssh_host %}
 
 # GRETAP Tunnel to {{host}} ({{hostvars[host].ansible_ssh_host}})
@@ -13,3 +13,4 @@ iface tap-{{host}} inet manual
         post-down ip link del $IFACE
 {% endif %}
 {% endfor %}
+

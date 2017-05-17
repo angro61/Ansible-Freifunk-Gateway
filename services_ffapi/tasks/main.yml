@@ -1,5 +1,5 @@
 - name: git für ffapi
-  git: repo=https://github.com/FreiFunk-Siegburg/services-ffsu.git dest=/usr/src/services-ffsu force=yes version=master
+  git: repo=https://github.com/FreiFunkMuenster/services-ffms.git dest=/usr/src/services-ffms force=yes version=master
 
 - name: Verzeichnis für ffapi.json
   file: path=/var/www/html/freifunk state=directory mode=0755
@@ -9,3 +9,4 @@
 
 - name: cron für ffapi-update-nodes.sh
   cron: name="ffapi" minute="0" job="/usr/local/bin/ffapi-update-nodes.sh >/dev/null 2>&1"
+

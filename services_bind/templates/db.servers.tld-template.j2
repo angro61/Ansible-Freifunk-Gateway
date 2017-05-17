@@ -13,8 +13,8 @@ $TTL    86400
 {% if i.append(i.pop() + 1) %}{% endif %}
 {% endif %}
 {% endfor %}
-{% if bind.ffsu_for_groups is defined and bind.ffsu_for_groups.0 is defined %}
-{% for group in bind.ffsu_for_groups %}
+{% if bind.ffms_for_groups is defined and bind.ffms_for_groups.0 is defined %}
+{% for group in bind.ffms_for_groups %}
 {% for host in groups[group] %}
 {{host}}	IN      A       {{hostvars[host].ansible_ssh_host}};
 {% endfor %}
@@ -34,7 +34,7 @@ domaene{{domaene[0]}}-B IN	A	{{hostvars[host].ansible_ssh_host}};
 {% elif domaene[1].server_id is defined and domaene[1].server_id == 4 %}
 domaene{{domaene[0]}}-C IN	A	{{hostvars[host].ansible_ssh_host}};
 {% elif domaene[1].server_id is defined and domaene[1].server_id == 5 %}
-domaene{{domaene[0]}}-D IN	A	{{hostvars[host].ansible_ssh_host}};
+domaene{{domaene[0]}}-D IN	A	{{hostvars[host].ansible_ssh_host}}; 
 {% endif %}
 {% endfor %}
 {% endif %}

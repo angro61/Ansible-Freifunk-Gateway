@@ -1,21 +1,21 @@
-## Tunnel für das Routing von den Domänen zum ffsu Backbone
+## Tunnel für das Routing von den Domänen zum FFMS Backbone
 
 ### Rollen
-Es gibt zwei Rollen, die die Tunnel zwischen den Gateways der einzelnen Domänen und dem ffsu Backbone aufbauen.
+Es gibt zwei Rollen, die die Tunnel zwischen den Gateways der einzelnen Domänen und dem FFMS Backbone aufbauen.
 
-- ``interfaces_ffsu_backbone``
+- ``interfaces_ffms_backbone``
 - ``gateways_gre`` (diese Rolle)
 
-Die Rolle ``interfaces_ffsu_backbone`` muss auf den Backbone Servern ausgeführt werden. Die Rolle ``gateways_gre`` muss auf den Gateway-Servern der jeweiligen Domäne ausgeführt werden.
+Die Rolle ``interfaces_ffms_backbone`` muss auf den Backbone Servern ausgeführt werden. Die Rolle ``gateways_gre`` muss auf den Gateway-Servern der jeweiligen Domäne ausgeführt werden.
 
 ### Konfiguration
 Die Konfiguration findet ausschließlich in den ``host_vars`` statt.
 Die Konfiguration sieht exemplarisch wie folgt aus:
 
 ```
-ffsu_tun_to:
-- host_name: fgw01
-- host_name: fgw02
+ffms_tun_to:
+- host_name: remue-01
+- host_name: test-des5
 - ...
 ```
 

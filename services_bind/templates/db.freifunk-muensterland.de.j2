@@ -1,6 +1,6 @@
-; zonefile for freifunk-siegburg.de.
+; zonefile for freifunk-muensterland.de.
 $TTL 3600
-@ IN SOA service.freifunk-siegburg.de. info.freifunk-siegburg.de. (
+@ IN SOA service.freifunk-muensterland.de. info.freifunk-muensterland.de. (
     {{ansible_date_time.epoch}} ; serial
     3600        ; refresh
     600         ; retry
@@ -49,33 +49,33 @@ forum                                            IN  AAAA    2a01:4f8:191:21e1::
 mailvax                                          IN  A       212.47.250.87
 wiki                                             IN  A       46.4.90.212
 
-smtp                                             IN  CNAME   mail.freifunk-siegburg.de.
-imap                                             IN  CNAME   mail.freifunk-siegburg.de.
-pop                                              IN  CNAME   mail.freifunk-siegburg.de.
+smtp                                             IN  CNAME   mail.freifunk-muensterland.de.
+imap                                             IN  CNAME   mail.freifunk-muensterland.de.
+pop                                              IN  CNAME   mail.freifunk-muensterland.de.
 
-_imap._tcp                                       IN  SRV     0 1 143 mail.freifunk-siegburg.de.
-_imaps._tcp                                      IN  SRV     0 1 993 mail.freifunk-siegburg.de.
-_pop3._tcp                                       IN  SRV     0 1 110 mail.freifunk-siegburg.de.
-_pop3s._tcp                                      IN  SRV     0 1 995 mail.freifunk-siegburg.de.
-_submission._tcp                                 IN  SRV     0 1 587 mail.freifunk-siegburg.de.
-_caldavs._tcp                                    IN  SRV     0 1 443 dav.freifunk-siegburg.de.
-_carddavs._tcp                                   IN  SRV     0 1 443 dav.freifunk-siegburg.de.
-_autodiscover._tcp                               IN  SRV     0 1 443 autodiscover.freifunk-siegburg.de.
+_imap._tcp                                       IN  SRV     0 1 143 mail.freifunk-muensterland.de.
+_imaps._tcp                                      IN  SRV     0 1 993 mail.freifunk-muensterland.de.
+_pop3._tcp                                       IN  SRV     0 1 110 mail.freifunk-muensterland.de.
+_pop3s._tcp                                      IN  SRV     0 1 995 mail.freifunk-muensterland.de.
+_submission._tcp                                 IN  SRV     0 1 587 mail.freifunk-muensterland.de.
+_caldavs._tcp                                    IN  SRV     0 1 443 dav.freifunk-muensterland.de.
+_carddavs._tcp                                   IN  SRV     0 1 443 dav.freifunk-muensterland.de.
+_autodiscover._tcp                               IN  SRV     0 1 443 autodiscover.freifunk-muensterland.de.
 
 ; authentication for mailchimp (newsletter distribution)
 ; k1._domainkey                                  IN  CNAME   dkim.mcsv.net.
 ; @                                              IN  TXT     "v=spf1 include:servers.mcsv.net ?all"
 
-@                                                IN  MX 10   mail.freifunk-siegburg.de.
+@                                                IN  MX 10   mail.freifunk-muensterland.de.
 @                                                IN  TXT     "v=spf1 mx -all"
 default._domainkey                               IN  TXT     "v=DKIM1;k=rsa;t=s;s=email;p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDiywfDbx8rb5CpKqmD6i4Qx1yRvci/sengh1j4csKSyAcDCyWmWaJXum39PwfX4UJSOy+bvDqUBciUYxIsMHsJJyggL0DOVoohfSGQqnqHeOabURMEiFnvTfOYa80yv74IhxUUECyFKwdZDJw+TAzzrq/SdpJxzGmFtBGxcwnErQIDAQAB"
-_dmarc                                           IN  TXT     "v=DMARC1; p=reject; rua=mailto:mailauth-reports@freifunk-siegburg.de"
+_dmarc                                           IN  TXT     "v=DMARC1; p=reject; rua=mailto:mailauth-reports@freifunk-muensterland.de"
 @                                                IN  TXT     "google-site-verification=_PWQf_8IeE8dPfbeyfun4_ig3s0lWd1jX5X9m0doWpo"
 
-forum                                            IN  MX 10   mail.freifunk-siegburg.de.
-forum                                            IN  TXT     "v=spf1 mx a a:mail.freifunk-siegburg.de ~all"
+forum                                            IN  MX 10   mail.freifunk-muensterland.de.
+forum                                            IN  TXT     "v=spf1 mx a a:mail.freifunk-muensterland.de ~all"
 default._domainkey.forum                         IN  TXT     "v=DKIM1;k=rsa;t=s;s=email;p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCuVStLDivCoMgBKPcb/w37iiza7EvG+cShx4uDKeIjBZYCN0DWb7uGo1DoapN+zWn4/p5+SLkuDSu0Q24D2TStHXE6CcQKPryHxHSJvRRJYwK3SDJL3PH1yEpBj5nOLoABHobwSm042/8VYT+bsCXWJm4dVDOmYix/3NymS7QClQIDAQAB"
-_dmarc.forum                                     IN  TXT     "v=DMARC1; p=reject; rua=mailto:mailauth-reports@forum.freifunk-siegburg.de"
+_dmarc.forum                                     IN  TXT     "v=DMARC1; p=reject; rua=mailto:mailauth-reports@forum.freifunk-muensterland.de"
 
-wiki                                             IN  MX 10   mailvax.freifunk-siegburg.de.
-wiki                                             IN  TXT     "v=spf1 mx a a:mailvax.freifunk-siegburg.de ~all"
+wiki                                             IN  MX 10   mailvax.freifunk-muensterland.de.
+wiki                                             IN  TXT     "v=spf1 mx a a:mailvax.freifunk-muensterland.de ~all"

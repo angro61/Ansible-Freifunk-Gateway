@@ -61,8 +61,8 @@ protocol ospf {
 		interface "bat*" {
 			stub;
 		};
-{% if ffsu_tun_to is defined %}
-{% for host in ffsu_tun_to %}
+{% if ffms_tun_to is defined %}
+{% for host in ffms_tun_to %}
 {% if "cost" in  host %}
         interface "gre-{{host.host_name}}" {
             cost {{host.cost}};
@@ -73,8 +73,8 @@ protocol ospf {
 {% endfor %}
 {% endif %}
 {% for host in groups['gateways'] %}
-{% if 'ffsu_tun_to' in hostvars[host] %}
-{% for link in hostvars[host].ffsu_tun_to%}
+{% if 'ffms_tun_to' in hostvars[host] %}
+{% for link in hostvars[host].ffms_tun_to%}
 {% if 'host_name' in link and link.host_name == inventory_hostname %}
 {% if "cost" in  link %}
         interface "gre-{{host}}" {
@@ -104,8 +104,8 @@ function is_default() {
 filter hostroute {
 {% for domaene in domaenen|dictsort %}
 {% set step = 0 %}
-{% if ffsu_tun_to is defined %}
-{% for host in ffsu_tun_to %}
+{% if ffms_tun_to is defined %}
+{% for host in ffms_tun_to %}
 {% if 'domaene-'+domaene[0] in hostvars[host.host_name].group_names and step == 0 %}
 	if net ~ {{hostvars[host.host_name].ff_network.v6_network | regex_replace('..::/\d+$','00::/56')}} then accept;
 {% set step = 1 %}
@@ -124,9 +124,9 @@ filter hostroute {
 }
 
 {% for domaene in domaenen|dictsort %}
-{% if ffsu_tun_to is defined %}
+{% if ffms_tun_to is defined %}
 {% set iterated = false %}
-{% for host in ffsu_tun_to if iterated == false %}
+{% for host in ffms_tun_to if iterated == false %}
 {% if 'domaene-'+domaene[0] in hostvars[host.host_name].group_names and not (domaenenliste is defined and domaene[0] in domaenenliste) %}
 {% set iterated = true %}
 protocol static static_domaene{{domaene[0]}} {
@@ -213,9 +213,9 @@ protocol bgp ffrl_{{tun.name}} from uplink {
 {% if 'ffrl_tun' in hostvars[host] and hostvars[host].vm_id != vm_id %}
 protocol bgp ibgp_{{host|regex_replace('-','_')}} from internal {
 {% if hostvars[host].vm_id < vm_id %}
-	neighbor 2a03:2260:3017:ffa1::{{hostvars[host].vm_id}}:{{vm_id}}:1 as {{ff_network.as_number}};
+	neighbor 2a03:2260:115:ffa1::{{hostvars[host].vm_id}}:{{vm_id}}:1 as {{ff_network.as_number}};
 {% else %}
-	neighbor 2a03:2260:3017:ffa1::{{vm_id}}:{{hostvars[host].vm_id}}:0 as {{ff_network.as_number}};
+	neighbor 2a03:2260:115:ffa1::{{vm_id}}:{{hostvars[host].vm_id}}:0 as {{ff_network.as_number}};
 {% endif %}
 }
 

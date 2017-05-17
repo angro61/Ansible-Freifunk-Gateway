@@ -2,7 +2,7 @@
 zone "{{domain}}" IN {
 	type slave;
 	masters {
-{% for master in bind.ffsu_zone_masters %}
+{% for master in bind.ffms_zone_masters %}
 		{{master}};
 {% endfor %}
 	};
@@ -10,7 +10,7 @@ zone "{{domain}}" IN {
 zone "servers.{{domain}}." IN {
 	type slave;
 	masters {
-{% for master in bind.ffsu_zone_masters %}
+{% for master in bind.ffms_zone_masters %}
 		{{master}};
 {% endfor %}
 	};
@@ -18,7 +18,7 @@ zone "servers.{{domain}}." IN {
 zone "services.{{domain}}." IN {
 	type slave;
 	masters {
-{% for master in bind.ffsu_zone_masters %}
+{% for master in bind.ffms_zone_masters %}
 		{{master}};
 {% endfor %}
 	};
@@ -26,7 +26,7 @@ zone "services.{{domain}}." IN {
 zone "knoten.{{domain}}." IN {
 	type slave;
 	masters {
-{% for master in bind.ffsu_zone_masters %}
+{% for master in bind.ffms_zone_masters %}
 		{{master}};
 {% endfor %}
 	};

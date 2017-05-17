@@ -1,8 +1,8 @@
 # This file is managed by ansible, don't make changes here - they will be overwritten.
 
-# Batman Interface
-# - Erstellt das virtuelle Inteface fuer das Batman-Modul und bindet dieses an die Netzwerkbruecke
-# - Die unten angelegte Routing-Tabelle wird spaeter fuer das Routing innerhalb von Freifunk (Router/VPN) verwendet
+# Batman Interface 
+# - Erstellt das virtuelle Inteface fuer das Batman-Modul und bindet dieses an die Netzwerkbruecke 
+# - Die unten angelegte Routing-Tabelle wird spaeter fuer das Routing innerhalb von Freifunk (Router/VPN) verwendet 
 
 auto bat0
 iface bat0 inet static
@@ -14,7 +14,7 @@ iface bat0 inet static
         post-up batctl it 10000
 	post-up batctl gw server {{batman.downstream}}/{{batman.upstream}}
 	post-up batctl if add mesh-vpn ||:
-{% for host in gre_ffsu.groups %}
+{% for host in gre_ffms.groups %}
 {% if ansible_ssh_host != hostvars[host].ansible_ssh_host %}
 	post-up batctl if add tap-{{host}} ||:
 {% endif %}

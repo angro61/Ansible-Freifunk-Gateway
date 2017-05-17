@@ -3,17 +3,17 @@
 
 - name: install figlet
   apt: pkg=figlet state=latest
-
+  
 - name: figlet name
   command: /usr/bin/figlet -D -c -w 50 {{freifunk.kurzname}}
   register: figlethost
   check_mode: no
-
+  
 - name: deploy motd file
   template: src=motd.j2 dest=/etc/motd owner=root mode=0444
-
+  
 - name: Enable syntax highlighting in vim by default
-  lineinfile:
+  lineinfile: 
     dest=~/.vimrc
     regexp='^syntax '
     line='syntax on'
@@ -84,7 +84,6 @@
     - dhcping
     - irqbalance
     - build-essential
-    - screen
 
 - name: uninstall unneeded packages
   apt:
@@ -111,14 +110,14 @@
   changed_when: False
 
 - name: "Update logrotate cycle in /etc/logrotate.d/"
-  replace:
+  replace: 
     dest: "{{item}}"
     regexp: 'daily|weekly|monthly'
     replace: '{{logrotate.cycle}}'
   with_items: "{{logrotate_files.stdout_lines}}"
 
 - name: "Update logrotate count in /etc/logrotate.d/"
-  replace:
+  replace: 
     dest: "{{item}}"
     regexp: 'rotate[ \t]+[0-9]+'
     replace: 'rotate {{logrotate.count}}'
