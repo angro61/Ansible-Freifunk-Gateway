@@ -86,13 +86,13 @@
     - build-essential
     - screen
 
-- name: uninstall unneeded packages
-  apt:
-    pkg: "{{ item }}"
-    update_cache: yes
-    state: absent
-  with_items:
-    - rpcbind
+#- name: uninstall unneeded packages
+#  apt:
+#    pkg: "{{ item }}"
+#    update_cache: yes
+#    state: absent
+#  with_items:
+#    - rpcbind
 
 - name: SSH-Schlüsseldatei generieren
   template: src=authorized_keys.j2 dest=/root/.ssh/authorized_keys
