@@ -1,3 +1,10 @@
+#
+# cron.d/yanic_collector -- schedules periodic wget of yanic .json data
+#
+# Copyright © technik <technik@freifunk-siegburg.de>
+# distributed under the terms of GPL 2.0
+#
+
 # gw's tdf
 * * * * * wget http://4.fftdf.de/graph.json -O /opt/data/tdf4/graph.json
 * * * * * wget http://4.fftdf.de/meshviewer.json -O /opt/data/tdf4/meshviewer.json
