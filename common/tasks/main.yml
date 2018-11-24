@@ -88,7 +88,7 @@
     - ntpdate
 
 - name: install ntp
-  apt: ntp state-latest
+  apt: ntp state=latest
   
 - name: clean ptbtime1
   lineinfile: dest=/etc/ntp.conf regexp=ptbtime1\.ptb\.de state=absent
