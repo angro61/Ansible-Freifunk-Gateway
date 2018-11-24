@@ -95,6 +95,10 @@
 
 - name: add ptbtime1
   lineinfile: dest=/etc/ntp.conf line="server ptbtime1.ptb.de"
+  - restart ntp
+
+- name: enable ntp
+  service: name=ntp state=started enabled=yes 
   
 #- name: uninstall unneeded packages
 #  apt:
