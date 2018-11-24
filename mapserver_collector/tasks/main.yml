@@ -1,3 +1,57 @@
 ---
 # check for directories under /opt/data/<gateway>/ and create, if nessessary
 # add cronjob to system to get .json files from gateways
+- name create yanicdatadirs
+  # data dir
+  file:
+    path: /opt/data
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: 0775
+  # tdf gateways
+  file:
+    path: /opt/data/tdf4
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: 0775
+  file:
+    path: /opt/data/tdf5
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: 0775
+  file:
+    path: /opt/data/tdf6
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: 0775
+  # su Gateways
+  file:
+    path: /opt/data/fgw01
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: 0775
+  file:
+    path: /opt/data/fgw02
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: 0775
+  file:
+    path: /opt/data/fgw03
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: 0775
+  file:
+    path: /opt/data/fgw04
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: 0775
+  # Mck/Rhb Gateways
+  
