@@ -1,0 +1,3 @@
+---
+# check for directories under /opt/data/<gateway>/ and create, if nessessary
+# add cronjob to system to get .json files from gateways
