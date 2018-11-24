@@ -1,0 +1,41 @@
+---
+
+# go 
+
+- name: Download and install go
+  unarchive: src=https://dl.google.com/go/go{{ go_version }}.linux-amd64.tar.gz dest=/usr/local remote_src=yes creates=/usr/local/go/bin/go
+
+- name: Configure go
+  copy: src=go.sh dest=/etc/profile.d/go.sh
+
+# yanic
+
+  - name: Create user
+    user: name=yanic
+
+  - name: Install yanic
+    shell: /usr/local/go/bin/go get -v -u {{ yanic_source }}
+    args:
+      creates: /opt/go/bin/yanic
+    environment:
+      GOPATH: /opt/go
+    notify: Restart yanic
+
+  - name: Configure yanic
+    template: src=config.toml.j2 dest=/etc/yanic.conf
+    notify: Restart yanic
+
+  - name: Create directories
+    file: path={{ item }}/ state=directory owner=yanic
+    with_items:
+    - "{{ yanic_meshviewer_path }}"
+    - /var/lib/yanic
+
+  - name: Install systemd unit
+    copy: src=yanic.service dest=/lib/systemd/system/yanic.service
+    notify:
+    - Reload systemd
+    - Restart yanic
+
+  - name: Enable yanic
+    service: name=yanic enabled=yes
