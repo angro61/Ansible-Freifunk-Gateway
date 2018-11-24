@@ -95,6 +95,7 @@
 
 - name: add ptbtime1
   lineinfile: dest=/etc/ntp.conf line="server ptbtime1.ptb.de"
+  notify:
   - restart ntp
 
 - name: enable ntp
