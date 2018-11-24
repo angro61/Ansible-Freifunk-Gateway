@@ -55,3 +55,10 @@
     mode: 0775
   # Mck/Rhb Gateways
   
+- name: create collectorcron
+  action: template src=mapserver_collector/templates/yanic_collector.cron.j2 dest=/etc/cron.d/yanic_collector mode=0755 owner=root group=root
+  
+- name: Reload service cron, in all cases
+  service:
+    name: cron
+    state: reloaded
