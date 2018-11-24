@@ -3,3 +3,6 @@
 
 - name: reload resolv config
   shell: resolvconf -u
+
+- name: restart ntp
+  service: name=ntp state=restarted
