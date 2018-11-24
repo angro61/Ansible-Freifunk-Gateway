@@ -1,7 +1,7 @@
 ---
 # check for directories under /opt/data/<gateway>/ and create, if nessessary
 # add cronjob to system to get .json files from gateways
-- name create yanicdatadirs
+- name: create yanicdatadirs
   # data dir
   file:
     path: /opt/data
