@@ -91,7 +91,7 @@
   apt: ntp state=latest
   
 - name: clean ptbtime1
-  lineinfile: dest=/etc/ntp.conf regexp=ptbtime1\.ptb\.de state=absent
+  lineinfile: dest=/etc/ntp.conf regexp='server ptbtime1\.ptb\.de' state=absent
 
 - name: add ptbtime1
   lineinfile: dest=/etc/ntp.conf line="server ptbtime1.ptb.de"
