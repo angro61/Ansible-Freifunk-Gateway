@@ -85,7 +85,17 @@
     - irqbalance
     - build-essential
     - screen
+    - ntpdate
 
+- name: install ntp
+  apt: ntp state-latest
+  
+- name: clean ptbtime1
+  lineinfile: dest=/etc/ntp.conf regexp=ptbtime1\.ptb\.de state=absent
+
+- name: add ptbtime1
+  lineinfile: dest=/etc/ntp.conf line="server ptbtime1.ptb.de"
+  
 #- name: uninstall unneeded packages
 #  apt:
 #    pkg: "{{ item }}"
