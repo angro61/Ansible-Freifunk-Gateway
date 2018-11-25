@@ -8,7 +8,7 @@ synchronize      = "{{ yanic_respondd_synchronize_interval }}"
 domains            = ["{{ site_code }}"]
 
 [[respondd.interfaces]]
-ifname = "{{ yanic_respondd_interface }}"
+ifname = "{{ ansible_facts['ansible_br[0-9][0-9]']['device']}}"
 
 [webserver]
 enable  = {{ yanic_webserver | ternary('true','false') }}
