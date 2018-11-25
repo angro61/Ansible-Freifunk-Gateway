@@ -86,9 +86,9 @@
     - build-essential
     - screen
     - ntpdate
+    - ntp
 
-- name: install ntp
-  apt: ntp state=latest
+
   
 - name: clean ptbtime1
   lineinfile: dest=/etc/ntp.conf regexp='server ptbtime1\.ptb\.de' state=absent
