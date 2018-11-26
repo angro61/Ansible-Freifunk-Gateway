@@ -1,3 +1,6 @@
 ---
-- name: restart crond
-  service: name=cron state=restarted
+- name: reload cron
+  service:
+        name: cron
+        state: restarted
+
