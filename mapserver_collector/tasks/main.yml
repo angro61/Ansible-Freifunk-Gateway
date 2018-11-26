@@ -8,9 +8,9 @@
     mode: 0775
   with_items:
     - /opt/data
-    - /opt/data/tdf04
-    - /opt/data/tdf05
-    - /opt/data/tdf06
+    - /opt/data/tdf4
+    - /opt/data/tdf5
+    - /opt/data/tdf6
     - /opt/data/fgw01
     - /opt/data/fgw02
     - /opt/data/fgw03
