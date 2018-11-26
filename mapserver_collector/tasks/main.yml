@@ -1,61 +1,23 @@
 ---
-# check for directories under /opt/data/<gateway>/ and create, if nessessary
-# add cronjob to system to get .json files from gateways
-- name: create yanicdatadirs
-  # data dir
+- name: create yanic data folders
   file:
-    path: /opt/data
+    path: "{{ item }}"
     state: directory
     owner: www-data
     group: www-data
     mode: 0775
-  # tdf gateways
-  file:
-    path: /opt/data/tdf4
-    state: directory
-    owner: www-data
-    group: www-data
-    mode: 0775
-  file:
-    path: /opt/data/tdf5
-    state: directory
-    owner: www-data
-    group: www-data
-    mode: 0775
-  file:
-    path: /opt/data/tdf6
-    state: directory
-    owner: www-data
-    group: www-data
-    mode: 0775
-  # su Gateways
-  file:
-    path: /opt/data/fgw01
-    state: directory
-    owner: www-data
-    group: www-data
-    mode: 0775
-  file:
-    path: /opt/data/fgw02
-    state: directory
-    owner: www-data
-    group: www-data
-    mode: 0775
-  file:
-    path: /opt/data/fgw03
-    state: directory
-    owner: www-data
-    group: www-data
-    mode: 0775
-  file:
-    path: /opt/data/fgw04
-    state: directory
-    owner: www-data
-    group: www-data
-    mode: 0775
-  # Mck/Rhb Gateways
-  
-- name: create collectorcron
-  template: src=mapserver_collector/templates/yanic_collector.cron.j2 dest=/etc/cron.d/yanic_collector mode=0755 owner=root group=root
+  with_items:
+    - /opt/data
+    - /opt/data/tdf04
+    - /opt/data/tdf05
+    - /opt/data/tdf06
+    - /opt/data/fgw01
+    - /opt/data/fgw02
+    - /opt/data/fgw03
+    - /opt/data/fgw04
+
+- name: yaniccollectorcron
+  template: src=yanic_collector.cron.j2 dest=/etc/cron.d/yanic_collector
   notify:
-    - restart crond
+  - reload cron
+
