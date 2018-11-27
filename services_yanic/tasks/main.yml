@@ -10,32 +10,37 @@
 
 # yanic
 
-  - name: Create user
-    user: name=yanic
+- name: Add the user 'yanic'
+  user:
+    name: yanic
+    comment: yanic respondd
+    #    uid: 123456
+    #    group: yanic
 
-  - name: Install yanic
-    shell: /usr/local/go/bin/go get -v -u {{ yanic_source }}
-    args:
-      creates: /opt/go/bin/yanic
-    environment:
-      GOPATH: /opt/go
-    notify: Restart yanic
 
-  - name: Configure yanic
-    template: src=config.toml.j2 dest=/etc/yanic.conf
-    notify: Restart yanic
+- name: Install yanic
+  shell: /usr/local/go/bin/go get -v -u {{ yanic_source }}
+  args:
+   creates: /opt/go/bin/yanic
+  environment:
+    GOPATH: /opt/go
+  notify: Restart yanic
 
-  - name: Create directories
-    file: path={{ item }}/ state=directory owner=yanic
-    with_items:
+- name: Configure yanic
+  template: src=config.toml.j2 dest=/etc/yanic.conf
+  notify: Restart yanic
+
+- name: Create directories
+  file: path={{ item }}/ state=directory owner=yanic
+  with_items:
     - "{{ yanic_meshviewer_path }}"
     - /var/lib/yanic
 
-  - name: Install systemd unit
-    copy: src=yanic.service dest=/lib/systemd/system/yanic.service
-    notify:
+- name: Install systemd unit
+  copy: src=yanic.service dest=/lib/systemd/system/yanic.service
+  notify:
     - Reload systemd
     - Restart yanic
 
-  - name: Enable yanic
-    service: name=yanic enabled=yes
+- name: Enable yanic
+  service: name=yanic enabled=yes
