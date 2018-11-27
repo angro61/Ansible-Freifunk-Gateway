@@ -1,6 +1,6 @@
 # provides:
 #
 # - go language install
-# - yanic installation
+# - yanic installation and configuration
 #
 # from repo
