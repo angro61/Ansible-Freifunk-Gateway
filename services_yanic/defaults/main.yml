@@ -4,8 +4,7 @@
 #go_version: 1.8.6
 go_version: 1.11.2
 
-# yanic - w.i.p.
-
+# yanic 
 yanic_source: github.com/Freifunk-Rhein-Sieg/yanic
 
 
