@@ -1,0 +1,5 @@
+---
+
+- name: Import Grafana GPG signing key
+apt_key: url=https://packagecloud.io/gpg.key  state=present
+
