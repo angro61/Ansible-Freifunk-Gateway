@@ -4,7 +4,7 @@
   apt_key: url=https://packagecloud.io/gpg.key  state=present
 
 - name: Add Grafana repository
-  apt_repository: repo='deb https://packagecloud.io/grafana/stable/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release | lower }}' state=present
+  apt_repository: repo='deb https://packagecloud.io/grafana/stable/debian/ {{ ansible_distribution_release | lower }}' state=present
 
 - name: Add the user 'grafana'
   user:
