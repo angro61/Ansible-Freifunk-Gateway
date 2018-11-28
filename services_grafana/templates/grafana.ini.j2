@@ -14,7 +14,7 @@
 #
 # Directory where grafana can store logs
 #
-;logs = /var/log/grafana
+;logs = {{ grafana_log }}
 #
 # Directory where grafana will automatically scan and look for plugins
 #
@@ -28,13 +28,13 @@
 ;protocol = http
 
 # The ip address to bind to, empty will bind to all interfaces
-http_addr = 127.0.0.1
+http_addr = {{ grafana_ip }}
 
 # The http port  to use
-http_port = 3000
+http_port = {{ grafana_port }}
 
 # The public facing domain name used to access grafana from a browser
-;domain = localhost
+;domain = {{ grafana_domain }}
 
 # Redirect to correct domain if host header does not match domain
 # Prevents DNS rebinding attacks
@@ -118,10 +118,10 @@ check_for_updates = true
 ;admin_user = admin
 
 # default admin password, can be changed before first start of grafana,  or in profile settings
-;admin_password = admin
+;admin_password = {{ grafana_admin_default_pass }}
 
 # used for signing
-;secret_key = SW2YcwTIb9zpOOhoPsMm
+;secret_key = {{ grafana_secret_key }}
 
 # Auto-login remember days
 ;login_remember_days = 7
