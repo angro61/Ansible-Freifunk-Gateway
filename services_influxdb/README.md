@@ -1,2 +1,2 @@
-# ansible role for installation of influxdb
+# ansible role for installation and configuration of influxdb
 w.i.p.
