@@ -1,0 +1,4 @@
+---
+
+# grafana
+grafana_data_path: /opt/data/grafana
