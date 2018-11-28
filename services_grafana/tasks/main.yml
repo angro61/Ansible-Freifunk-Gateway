@@ -1,5 +1,44 @@
 ---
 
 - name: Import Grafana GPG signing key
-apt_key: url=https://packagecloud.io/gpg.key  state=present
+  apt_key: url=https://packagecloud.io/gpg.key  state=present
+
+- name: Add Grafana repository
+  apt_repository: repo='deb https://packagecloud.io/grafana/stable/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release | lower }}' state=present
+
+- name: Add the user 'grafana'
+  user:
+    name: grafana
+    comment: grafana account
+    shell: /bin/false
+    home: /var/lib/grafana
+
+- name: Ensure group "grafana" exists
+  group:
+      name: grafana
+      state: present
+
+- name: Install Grafana packages
+  apt: name=grafana state=present
+
+- name: create grafana folders
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: grafana
+    group: grafana
+    mode: 0775
+  with_items:
+      - {{ grafana_data_path }}
+      - {{ influxdb_data_path }}/data
+      - {{ influxdb_data_path }}//plugins
+
+
+- name: configure grafana
+  template: src=grafana.ini.j2 dest=/etc/grafana/grafana.ini
+
+- name: Enable grafana
+  service: name=grafana-server enabled=yes
+  notify:
+    - Restart grafana
 
