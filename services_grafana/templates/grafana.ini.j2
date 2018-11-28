@@ -86,7 +86,7 @@ root_url = %(protocol)s://%(domain)s:%(http_port)s/grafana/
 ;provider_config = sessions
 
 # Session cookie name
-;cookie_name = grafana_sess
+;cookie_name = {{ grafana_sess }}
 
 # If you use session in https only, default is false
 ;cookie_secure = false
@@ -115,7 +115,7 @@ check_for_updates = true
 #################################### Security ####################################
 [security]
 # default admin user, created on startup
-;admin_user = admin
+;admin_user = {{ grafana_admin_user }}
 
 # default admin password, can be changed before first start of grafana,  or in profile settings
 ;admin_password = {{ grafana_admin_default_pass }}
@@ -210,13 +210,13 @@ check_for_updates = true
 #################################### SMTP / Emailing ##########################
 [smtp]
 enabled = true
-host = localhost:25
-user = monitoring@netsecdb.de
-password = Uwaikoh2ei
+host = {{ grafana_smtp_host }}:25
+user = {{ grafana_smtp_user }}
+password = {{ grafana_smtp_password }}
 ;cert_file =
 ;key_file =
 skip_verify = true
-from_address = grafana@netsecdb.de
+from_address = {{ grafana_smtp_sender }}
 
 [emails]
 ;welcome_email_on_sign_up = false
