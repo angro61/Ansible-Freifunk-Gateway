@@ -2,3 +2,16 @@
 
 # grafana
 grafana_data_path: /opt/data/grafana
+grafana_log: /var/log/grafana
+grafana_ip: 127.0.0.1
+grafana_port: 3000
+grafana_domain: localhost
+grafana_sess: grafana_sess
+grafana_admin_user: admin
+grafana_admin_default_pass: admin
+grafana_secret_key: 
+grafana_smtp_host: localhost
+grafana_smtp_user: technik@freifunk-siegburg.de
+grafana_smtp_password:
+grafana_smtp_sender: grafana@freifunk-siegburg.de
+
