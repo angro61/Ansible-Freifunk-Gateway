@@ -21,12 +21,19 @@ prune_after    = "{{ yanic_nodes_prune_after }}"
 save_interval  = "{{ yanic_nodes_save_interval }}"
 offline_after  = "{{ yanic_nodes_offline_after }}"
 
+[[nodes.output.nodelist]]
+enable = true
+path = "/var/www/html/meshviewer/data/nodelist.json"
+#[nodes.output.nodelist.filter]
+#no_owner = false
+
+
 [[nodes.output.meshviewer-ffsu]]
 enable  = {{ yanic_meshviewer_ffsu_enable | ternary('true','false') }}
 path    = "{{ yanic_meshviewer_ffsu_path }}"
 
 [nodes.output.meshviewer-ffsu.filter]
-no_owner = true
+#no_owner = true
 blacklist = []
 sites = ["{{ site }}"]
 has_location = true
@@ -43,15 +50,8 @@ version        = {{ yanic_meshviewer_version }}
 nodes_path     = "{{ yanic_meshviewer_nodes }}"
 graph_path     = "{{ yanic_meshviewer_graph }}"
 
-[nodes.output.meshviewer.filter]
-no_owner = true
-
-[[nodes.output.nodelist]]
-enable   = false
-path = "/var/www/html/meshviewer/data/nodelist.json"
-
-[nodes.output.nodelist.filter]
-no_owner = true
+#[nodes.output.meshviewer.filter]
+#no_owner = true
 
 [database]
 delete_after = "{{ yanic_database_delete_after }}"
