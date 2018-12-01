@@ -27,15 +27,16 @@
     GOPATH: /opt/go
   notify: Restart yanic
 
-- name: Configure yanic
-  template: src=config.toml.j2 dest=/etc/yanic.conf
-  notify: Restart yanic
-
 - name: Create directories
   file: path={{ item }}/ state=directory owner=yanic
   with_items:
     - "{{ yanic_meshviewer_path }}"
     - /var/lib/yanic
+
+- name: Configure yanic
+  template: src=config.toml.j2 dest=/etc/yanic.conf
+  notify: Restart yanic
+
 
 - name: Install systemd unit
   copy: src=yanic.service dest=/lib/systemd/system/yanic.service
