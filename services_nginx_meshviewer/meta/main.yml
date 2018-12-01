@@ -1,0 +1,6 @@
+---
+dependencies:
+  - { role: nodejs }
+  - { role: yarn }
+  - { role: service-nginx }
+- { role: services_yanic }
