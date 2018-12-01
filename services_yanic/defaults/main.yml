@@ -13,10 +13,10 @@ yanic_respondd: true
 yanic_respondd_collect_interval: 1m
 yanic_respondd_synchronize_interval: 1m
 # cat /etc/network/interfaces.d/20_l2tp_bridge.cfg | grep auto | cut -d ' ' -f 2:
-yanic_respondd_interface: "br01,br03"
+yanic_respondd_interface: "bat01,bat03"
 
 yanic_webserver: false
-yanic_webserver_bind: "127.0.0.1:8080"
+yanic_webserver_bind: "{{ ansible_default_ipv4.address }}:80"
 yanic_webserver_webroot: "/var/www/html/meshviewer"
 
 yanic_nodes: true
@@ -24,6 +24,8 @@ yanic_nodes_state_path: "/var/lib/yanic/yanic.json"
 yanic_nodes_save_interval: 5s
 yanic_nodes_offline_after: 10m
 yanic_nodes_prune_after: 7d
+
+yanic_sites: "su-su,su-sa,su-lo,su-mck,su-rhb,su-snw,su-ak,su-mck,su-nk"
 
 yanic_meshviewer_ffsu_enable: true
 yanic_meshviewer_ffsu_path: "/var/www/html/meshviewer/data/meshviewer.json"
@@ -33,6 +35,7 @@ yanic_meshviewer_version: 2
 yanic_meshviewer_path: "/var/www/html/meshviewer/data"
 yanic_meshviewer_nodes: "{{yanic_meshviewer_path}}/nodes.json"
 yanic_meshviewer_graph: "{{yanic_meshviewer_path}}/graph.json"
+yanic_meshiewer_nodelist: "{{yanic_meshviewer_path}}/nodelist.json"
 
 yanic_database_delete_after: 7d
 yanic_database_delete_interval: 1h
