@@ -16,14 +16,6 @@
   notify: restart nginx
   when: sslcert.stat.exists == False
 
-- name: Konfig-Datei graphite kopieren
-  template: src=graphite-init.j2 dest=/etc/nginx/sites-available/graphite
-  notify: restart nginx
-  when: sslcert.stat.exists == False
-
-- name: Konfig-Datei graphite aktivieren
-  file: src=/etc/nginx/sites-available/graphite dest=/etc/nginx/sites-enabled/graphite state=link
-  notify: restart nginx
 
 - name: nginx restarten wenn initial
   meta: flush_handlers
@@ -38,13 +30,9 @@
   template: src=default.j2 dest=/etc/nginx/sites-available/default
   notify: restart nginx
 
-- name: Konfig-Datei graphite kopieren
-  template: src=graphite.j2 dest=/etc/nginx/sites-available/graphite
-  notify: restart nginx
-
 - name: index.html kopieren
   template: src=index.html.j2 dest=/var/www/html/index.html
 
-- name: Cronjob für Zertifikatserneuerung
-  cron: name="simp_le" weekday="2" hour="20" minute="0" job="cd /etc/ssl && PATH=/usr/src/simp_le/venv/bin:/usr/sbin:/usr/bin:/sbin:/bin simp_le --email {{freifunk.email}} -f account_key.json -f key.pem -f fullchain.pem -d {{bind_zonemaster.server}}:/var/www/html -d graphite.{{freifunk.domain}}:/var/www/html && systemctl reload nginx"
+#- name: Cronjob für Zertifikatserneuerung
+# cron: name="simp_le" weekday="2" hour="20" minute="0" job="cd /etc/ssl && PATH=/usr/src/simp_le/venv/bin:/usr/sbin:/usr/bin:/sbin:/bin simp_le --email {{freifunk.email}} -f account_key.json -f key.pem -f fullchain.pem -d {{bind_zonemaster.server}}:/var/www/html  && systemctl reload nginx"
 
