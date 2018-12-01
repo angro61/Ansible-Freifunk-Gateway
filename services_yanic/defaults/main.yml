@@ -40,7 +40,7 @@ yanic_meshiewer_nodelist: "{{yanic_meshviewer_path}}/nodelist.json"
 yanic_database_delete_after: 7d
 yanic_database_delete_interval: 1h
 
-yanic_repondd_enable: true
+yanic_repondd_enable: false
 yanic_repondd_remotehost: "[ipv6 hserver]:10001"
 
 yanic_influxdb:
