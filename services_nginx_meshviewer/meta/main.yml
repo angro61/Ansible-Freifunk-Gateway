@@ -1,5 +1,4 @@
 ---
-dependencies:
-  - { role: yarn }
-  - { role: service-nginx }
+dependencies:  
+- { role: services_nginx }
 - { role: services_yanic }
