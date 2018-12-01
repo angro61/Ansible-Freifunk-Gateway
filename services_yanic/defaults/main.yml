@@ -12,8 +12,8 @@ yanic_publisher: false
 yanic_respondd: true
 yanic_respondd_collect_interval: 1m
 yanic_respondd_synchronize_interval: 1m
-# cat /etc/network/interfaces.d/20_l2tp_bridge.cfg | grep auto | cut -d ' ' -f 2:
-yanic_respondd_interface: "bat01,bat03"
+
+yanic_respondd_interface: "{% if domaenenliste is defined %}{% for domaene in domaenenliste|dictsort %}{{domaene[0]}} {% endfor %}{% endif %}"
 
 yanic_webserver: false
 yanic_webserver_bind: "{{ ansible_default_ipv4.address }}:80"
