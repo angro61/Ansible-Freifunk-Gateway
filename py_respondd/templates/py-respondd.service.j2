@@ -5,6 +5,8 @@ Description=The py-respondd server provides data about this node to the local ne
 Type=simple
 WorkingDirectory=/opt/py-respondd
 ExecStart=/opt/py-respondd/main.py config.json
+Restart=always
+RestartSec=5s
 
 [Install]
 WantedBy=multi-user.target
