@@ -16,4 +16,4 @@
 - name: install yarn package
   package:
     name: yarn
-state: present
+    state: present
