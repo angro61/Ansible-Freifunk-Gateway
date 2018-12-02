@@ -8,23 +8,9 @@
 - include: yarn.yml
 
 
-# meshviewer
+# meshviewer repo
 
-- name: create deploy directory
-  file:
-    path: "{{ meshviewer_path }}"
-    state: directory
-    mode: 0755
-    owner: www-data
-    group: www-data
-
-- name: clone repo
-  git:
-    repo: "https://github.com/ffrgb/meshviewer.git"
-    dest: "{{ meshviewer_src }}"
-    version: develop
-    force: yes
-  become: false
+- include: meshviewer.yml
 
 - name: install dependencies
   yarn:
