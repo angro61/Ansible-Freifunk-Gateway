@@ -1,10 +1,10 @@
 ---
 
-# nodejs required
-- include_tasks: nodejs.yml
-
-# yarn required
-- include_tasks: yarn.yml
+tasks:
+   # nodejs
+   - import_tasks: nodejs.yml
+   # yarn
+   - import_tasks: yarn.yml
 
 # meshviewer
 
