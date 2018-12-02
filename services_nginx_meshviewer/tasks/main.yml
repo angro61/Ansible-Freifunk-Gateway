@@ -2,9 +2,9 @@
 
 tasks:
    # nodejs
-   - import_tasks: nodejs.yml
+   - include: nodejs.yml
    # yarn
-   - import_tasks: yarn.yml
+   - include: yarn.yml
 
 # meshviewer
 
