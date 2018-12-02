@@ -1,15 +1,10 @@
 ---
 
-
-# nodejs first
+# nodejs required
 - include_tasks: nodejs.yml
 
-
-
-# yarn
+# yarn required
 - include_tasks: yarn.yml
-
-
 
 # meshviewer
 
