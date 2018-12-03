@@ -33,6 +33,9 @@
     - "{{ yanic_meshviewer_path }}"
     - /var/lib/yanic
 
+- name: Copy webserver README
+  copy: src=web_README.md dest={{yanic_webserver_webroot}}/data/README.md
+
 # for each bat-interface
 {% for item in domaenenliste|dictsort %}
 
