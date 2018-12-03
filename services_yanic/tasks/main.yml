@@ -36,6 +36,9 @@
 - name: Copy webserver README
   copy: src=web_README.md dest={{yanic_webserver_webroot}}/data/README.md
 
+- name: Copy validator script
+  copy: src=yanic_config_validator.sh dest=/home/yanic/yanic_config_validator.sh
+
 # for each bat-interface
 {% for item in domaenenliste|dictsort %}
 
