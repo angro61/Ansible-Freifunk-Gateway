@@ -33,16 +33,21 @@
     - "{{ yanic_meshviewer_path }}"
     - /var/lib/yanic
 
+# for each bat-interface
+{% for item in domaenenliste|dictsort %}
+
 - name: Configure yanic
-  template: src=config.toml.j2 dest=/etc/yanic.conf
-  notify: Restart yanic
+  template: src={{ ansible_hostname }}_bat{{item[0]}}_config.toml.j2 dest=/etc/yanic/yanic_bat{{item[0]}}.conf
+  
 
-
+- name: Enable yanic
+  service: name=yanic_bat{{item[0]}} enabled=yes
+  
 - name: Install systemd unit
-  copy: src=yanic.service dest=/lib/systemd/system/yanic.service
+  copy: src=yanic_bat{{item[0]}}.service dest=/lib/systemd/system/yanic_bat{{item[0]}}.service
   notify:
     - Reload systemd
     - Restart yanic
 
-- name: Enable yanic
-  service: name=yanic enabled=yes
+
+{% endfor %}
