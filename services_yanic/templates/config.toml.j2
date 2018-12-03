@@ -7,8 +7,17 @@ synchronize      = "{{ yanic_respondd_synchronize_interval }}"
 [respondd.sites.ffsu]
 domains            = ["{{ site_code }}"]
 
+
 [[respondd.interfaces]]
-ifname = "{{ ansible_br[0-9][0-9].device }}"
+ifname = "{{yanic_respondd_interface}}"
+ip_address = "{{yanic_respondd_fe80ip}}"
+# default
+multicast_address = "ff02::2:1001"
+# or
+#multicast_address = "ff05::2:1001"
+#send_no_request = true
+
+
 
 [webserver]
 enable  = {{ yanic_webserver | ternary('true','false') }}
@@ -23,7 +32,7 @@ offline_after  = "{{ yanic_nodes_offline_after }}"
 
 [[nodes.output.nodelist]]
 enable = true
-path = "/var/www/html/meshviewer/data/nodelist.json"
+path = "{{yanic_meshiewer_nodelist}}"
 #[nodes.output.nodelist.filter]
 #no_owner = false
 
