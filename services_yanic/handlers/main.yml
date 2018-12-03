@@ -1,7 +1,7 @@
 ---
 
 - name: Restart yanic
-  service: name=yanic state=restarted
+  service: name=yanic_bat{{item[0]}} state=restarted
 
 - name: Restart yanic-publish
   service: name=yanic-publish.timer state=restarted
