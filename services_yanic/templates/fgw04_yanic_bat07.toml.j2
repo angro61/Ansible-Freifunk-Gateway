@@ -29,7 +29,7 @@ offline_after  = "10m"
 [[nodes.output.nodelist]]
 enable = true
 path = "/var/www/html/meshviewer/data/07_nodelist.json"
-#[nodes.output.nodelist.filter]
+[nodes.output.nodelist.filter]
 #no_owner = false
 
 [[nodes.output.meshviewer-ffrgb]]
@@ -57,12 +57,6 @@ graph_path     = "/var/www/html/meshviewer/data/07_graph.json"
 [nodes.output.meshviewer.filter]
 no_owner = true
 
-[[nodes.output.nodelist]]
-enable   = false
-path = "/var/www/html/meshviewer/data/07_nodelist.json"
-
-[nodes.output.nodelist.filter]
-no_owner = true
 
 [database]
 delete_after = "7d"
