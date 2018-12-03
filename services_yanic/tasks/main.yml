@@ -37,7 +37,7 @@
 {% for item in domaenenliste|dictsort %}
 
 - name: Configure yanic
-  template: src={{ ansible_hostname }}_bat{{item[0]}}_config.toml.j2 dest=/etc/yanic/yanic_bat{{item[0]}}.conf
+  template: src={{ ansible_hostname }}_yanic_bat{{item[0]}}.toml.j2 dest=/etc/yanic/yanic_bat{{item[0]}}.conf
   
 
 - name: Enable yanic
