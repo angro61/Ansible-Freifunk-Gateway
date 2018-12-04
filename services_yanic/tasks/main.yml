@@ -38,7 +38,10 @@
 
 - name: Copy validator script
   copy: src=yanic_config_validator.sh dest=/home/yanic/yanic_config_validator.sh
-
+  
+- name: Copy hourly validator cronjob
+  copy: src=yanic_validator dest=/etc/cron.hourly/yanic_validator
+  
 # for each bat-interface
 {% for item in domaenenliste|dictsort %}
 
