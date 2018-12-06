@@ -5,8 +5,8 @@
     src: config.js.j2
     dest: "{{ meshviewer_src }}/config.js"
     mode: 0644
-    owner: admin
-    group: admin
+    owner: root
+    group: root
   become: false
 
 - name: yarn meshviewer_dep
