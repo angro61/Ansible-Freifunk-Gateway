@@ -7,13 +7,9 @@
     url: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
 
 - name: ensure nodejs apt repo is present
-  shell:
-  # for setup_11.x 
-  curl -sL https://deb.nodesource.com/setup_11.x | bash -
-  # for setup_10.x 
-  # curl -sL https://deb.nodesource.com/setup_10.x | bash -
-  # for setup_8.x 
-  # curl -sL https://deb.nodesource.com/setup_8.x | bash -
+    shell: curl -sL https://deb.nodesource.com/setup_11.x | bash -
+  args:
+    executable: /bin/bash
     
 - name: install nodejs package
   package:
