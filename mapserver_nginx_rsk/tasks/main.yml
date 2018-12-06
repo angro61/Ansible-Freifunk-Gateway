@@ -11,7 +11,7 @@
 
 - name: Install default nginx site for letsencrypt requests and https rewrite
   template:
-    src: templates/default.j2
+    src: default.j2
     dest: /etc/nginx/sites-available/default
   register: gendefconf
 
