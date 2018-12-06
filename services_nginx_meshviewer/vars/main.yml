@@ -3,6 +3,10 @@ http_meshviewer_prefix: "map"
 http_domain_external: "freifunk-troisdorf.de"
 http_domain_internal: "freifunk-rhein-sieg.net"
 
+http_grafana_prefix: "grafana"
+http_influx_prefix: "influx"
+
+
 http_meshviewer_external: "{{ http_meshviewer_prefix }}.{{ http_domain_external }}"
 http_meshviewer_internal: "{{ http_meshviewer_prefix }}.{{ http_domain_internal }}"
 
