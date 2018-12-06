@@ -140,4 +140,4 @@
   file:
     src: /opt/hopglass/hwpics/nodes
     dest: /var/www/html/hwpics
-state: link
+    state: link
