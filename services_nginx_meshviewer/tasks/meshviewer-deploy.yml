@@ -1,11 +1,5 @@
 ---
 
-
-- name: install dependencies
-  yarn:
-    path: "{{ meshviewer_src }}"
-  become: false
-
 - name: create meshviewer config
   template:
     src: config.js.j2
@@ -15,15 +9,23 @@
     group: admin
   become: false
 
-- name: build
-  shell: yarn run gulp
+- name: yarn meshviewer_dep
+  command:
+    args:
+      executable: /usr/bin/yarn
+      chdir: "{{ meshviewer_src }}"
+    become: false
+
+- name: building
+  command: /usr/bin/yarn run gulp
   args:
     chdir: "{{ meshviewer_src }}"
-  become: false
+    become: false
 
 - name: deploy
-  shell: 'rm -rf {{ meshviewer_path }}/* && cp -ar build/* {{ meshviewer_path }} && chown www-data:www-data -R {{ meshviewer_path }}'
+  command: 'rm -rf {{ meshviewer_path }}/* && cp -ar build/* {{ meshviewer_path }} && chown www-data:www-data -R {{ meshviewer_path }}'
   args:
+    executable: /bin/bash
     chdir: "{{ meshviewer_src }}"
     warn: no
 
@@ -34,4 +36,4 @@
     owner: root
     group: root
     mode: 0644
-   notify: restart nginx
+  notify: restart nginx
