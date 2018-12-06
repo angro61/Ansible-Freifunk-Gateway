@@ -90,20 +90,59 @@ module.exports = function () {
       ]
     ],
     'domainNames': [
-{% for mesh in meshes %}
       {
-        'domain': '{{ mesh.site_code }}',
-        'name': '{{ mesh.site_name }}'
+        'domain': 'su-su',
+        'name': 'Siegburg'
       },
-{% if mesh.sites_virtual is defined %}
-{% for site, name in mesh.sites_virtual.items() %}
       {
-        'domain': '{{ site }}',
-        'name': '{{ name }}'
+        'domain': 'su-lo',
+        'name': 'Lohmar'
       },
-{% endfor %}
-{% endif %}
-{% endfor %}
-    ]
+      {
+        'domain': 'su-sa',
+        'name': 'Sankt Augustin'
+
+      },
+      {
+        'domain': 'su-snw',
+        'name': 'Soziale Netzwerke'
+
+      },
+      {
+        'domain': 'su-ak',
+        'name': 'Altenkirchen'
+
+      },
+      {
+        'domain': 'su-nk',
+        'name': 'Niederkassel'
+
+      },
+      {
+        'domain': 'su-rhb',
+        'name': 'Rheinbach'
+
+      },
+      {
+        'domain': 'su-mck',
+        'name': 'Meckenheim'
+
+      },
+      {
+        'domain': 'inn',
+        'name': 'Troisdorf Innenstadt'
+
+      },
+      {
+        'domain': 'tdf',
+        'name': 'Troisdorf Umland'
+
+      },
+      {
+        'domain': 'flu',
+        'name': 'Troisdorf Soziale Netze'
+
+      }
+  ]
   };
 };
