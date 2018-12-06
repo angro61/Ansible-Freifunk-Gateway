@@ -9,10 +9,12 @@
     owner: www-data
     group: www-data
 
-- name: clone repo
+- name: "clone meshviewer repo"
   git:
     repo: "https://github.com/ffrgb/meshviewer.git"
     dest: "{{ meshviewer_src }}"
     version: develop
     force: yes
+    clone: yes
+    update: yes
   become: false
