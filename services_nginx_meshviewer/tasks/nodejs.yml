@@ -9,7 +9,7 @@
 - name: ensure nodejs apt repo is present
   apt_repository:
     state: present
-    repo: "deb https://deb.nodesource.com/node_11.x bionic main"
+    repo: "deb [allow-insecure=yes] https://deb.nodesource.com/node_11.x bionic main"
     update_cache: yes
     filename: nodesource
 
