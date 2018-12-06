@@ -7,12 +7,14 @@
     url: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
 
 - name: ensure nodejs apt repo is present
-  apt_repository:
-    state: present
-    repo: "deb [allow-insecure=yes] https://deb.nodesource.com/node_11.x bionic main"
-    update_cache: yes
-    filename: nodesource
-
+  shell:
+  # for setup_11.x 
+  curl -sL https://deb.nodesource.com/setup_11.x | bash -
+  # for setup_10.x 
+  # curl -sL https://deb.nodesource.com/setup_10.x | bash -
+  # for setup_8.x 
+  # curl -sL https://deb.nodesource.com/setup_8.x | bash -
+    
 - name: install nodejs package
   package:
     name: nodejs
