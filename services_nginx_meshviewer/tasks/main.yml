@@ -12,5 +12,5 @@
 
 - include: meshviewer.yml
 
-- include: meshviewer_deploy.yml
+- include: meshviewer-deploy.yml
 
