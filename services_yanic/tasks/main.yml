@@ -43,6 +43,7 @@
   copy: src=yanic_validator dest=/etc/cron.hourly/yanic_validator
   
 # for each bat-interface
+{% if domaenenliste is defined %}
 {% for item in domaenenliste|dictsort %}
 
 - name: Configure yanic
@@ -60,3 +61,4 @@
 
 
 {% endfor %}
+{% endif % }
