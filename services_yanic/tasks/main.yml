@@ -43,22 +43,23 @@
   copy: src=yanic_validator dest=/etc/cron.hourly/yanic_validator
   
 # for each bat-interface
-{% if domaenenliste is defined %}
+
 {% for item in domaenenliste|dictsort %}
 
 - name: Configure yanic
   template: src={{ ansible_hostname }}_yanic_bat{{item[0]}}.toml.j2 dest=/etc/yanic/yanic_bat{{item[0]}}.conf
-  
+  when: domaenenliste is defined
 
 - name: Enable yanic
   service: name=yanic_bat{{item[0]}} enabled=yes
+  when: domaenenliste is defined
   
 - name: Install systemd unit
   copy: src=yanic_bat{{item[0]}}.service dest=/lib/systemd/system/yanic_bat{{item[0]}}.service
   notify:
     - Reload systemd
     - Restart yanic
-
+  when: domaenenliste is defined
 
 {% endfor %}
-{% endif % }
+
