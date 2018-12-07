@@ -11,10 +11,10 @@
 
 - name: yarn meshviewer_dep
   command:
-    args:
-      executable: /usr/bin/yarn
-      chdir: "{{ meshviewer_src }}"
-    become: false
+  args:
+    executable: /usr/bin/yarn
+    chdir: "{{ meshviewer_src }}"
+  become: false
 
 - name: building
   command: /usr/bin/yarn run gulp
