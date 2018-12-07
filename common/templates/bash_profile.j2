@@ -29,7 +29,9 @@ export HISTCONTROL="ignoreboth"
 
 export LS_OPTIONS='--color=auto -h'
 
-export GREP_OPTIONS="--color"
+#export GREP_OPTIONS="--color"
+alias grep="grep $GREP_OPTIONS"
+export GREP_COLOR='1;32'
 
 #############################################################################
 
