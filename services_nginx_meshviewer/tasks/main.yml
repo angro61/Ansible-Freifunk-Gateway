@@ -2,6 +2,8 @@
 
 # prepare environment
 
+# nginx
+- include: nginx.yml
 # nodejs
 - include: nodejs.yml
 # yarn
