@@ -1,6 +1,6 @@
 location ^~ /.well-known/acme-challenge/ {
     resolver 9.9.9.9;
-    set $acme_host {{ acme_server }}.{{ http_domain_internal }};
+    set $acme_host {{ http_meshviewer_prefix }}.{{ http_domain_internal }};
     proxy_pass https://$acme_host:443;
 }
 
