@@ -17,8 +17,9 @@
   become: false
 
 - name: building
-  command: /usr/bin/yarn run gulp
+  command: run gulp
   args:
+    executable: /usr/bin/yarn
     chdir: "{{ meshviewer_src }}"
     become: false
 
