@@ -4,12 +4,14 @@
 #
 # See http://www.freifunk-rhein-sieg.net
 #
-                  __  __
-                / _|/ _|___ _   _
-               | |_| |_/ __| | | |
-               |  _|  _\__ \ |_| |
-               |_| |_| |___/\__,_|
+                    __  __
+                 / _|/ _|_ __ ___
+                | |_| |_| '__/ __|
+                |  _|  _| |  \__ \
+                |_| |_| |_|  |___/
 
-                Freifunk Siegburg
+
+                Freifunk Rhein-Sieg
+
 
            technik@freifunk-siegburg.de 
