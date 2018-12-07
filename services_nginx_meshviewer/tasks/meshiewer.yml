@@ -1,6 +1,11 @@
 ---
 # meshviewer
 
+- name: clean old meshviewer sourcedir
+  file:
+    path: "{{ meshviewer_src }}"
+    state: absent
+
 - name: create deploy directory
   file:
     path: "{{ meshviewer_path }}"
