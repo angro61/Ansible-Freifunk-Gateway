@@ -52,8 +52,6 @@
     group: www-data
     mode: 0440
 
-- name: sync ssl certs
-  shell: /etc/cron.daily/ssl_certs
 
 - name: copy gzip.conf to snippets
   copy:
@@ -100,12 +98,6 @@
     path: /var/www/html/static
     state: directory
     mode: 0755
-
-- name: copy css stylesheet
-  copy:
-    src: style.css
-    dest: /var/www/html/static/style.css
-    mode: 0644
 
 - name: write index.html
   template:
