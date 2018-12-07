@@ -24,7 +24,7 @@
     become: false
 
 - name: deploy
-  command: 'rm -rf {{ meshviewer_path }}/* && cp -ar build/* {{ meshviewer_path }} && chown www-data:www-data -R {{ meshviewer_path }}'
+  shell: 'rm -rf {{ meshviewer_path }}/* && cp -ar build/* {{ meshviewer_path }} && chown www-data:www-data -R {{ meshviewer_path }}'
   args:
     executable: /bin/bash
     chdir: "{{ meshviewer_src }}"
