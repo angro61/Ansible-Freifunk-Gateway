@@ -10,16 +10,16 @@
   become: false
 
 - name: yarn meshviewer_dep
-  command:
+  shell: yarn
   args:
-    executable: /usr/bin/yarn
+    executable: /bin/bash
     chdir: "{{ meshviewer_src }}"
   become: false
 
 - name: building
-  command: run gulp
+  shell: yarn run gulp
   args:
-    executable: /usr/bin/yarn
+    executable: /bin/bash
     chdir: "{{ meshviewer_src }}"
     become: false
 
