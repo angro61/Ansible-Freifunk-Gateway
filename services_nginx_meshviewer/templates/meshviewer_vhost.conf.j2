@@ -54,6 +54,7 @@ server {
     }
 }
 
+{% if meshes is defined %}
 {% for mesh in meshes %}
 server {
     listen 80;
@@ -76,3 +77,4 @@ server {
 
 {% endif %}
 {% endfor %}
+{% endif %}
