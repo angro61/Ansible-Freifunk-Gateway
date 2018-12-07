@@ -10,14 +10,6 @@
     name: ssl-cert
     state: present
 
-- name: create cronjob to sync ssl certs
-  template:
-    src: ssl_certs.cron.j2
-    dest: /etc/cron.daily/ssl_certs
-    mode: 0755
-    owner: root
-    group: root
-  notify: restart cron
 
 - name: create config snippets directory
   file:
@@ -33,7 +25,7 @@
     state: directory
     mode: 0550
     owner: www-data
-    group: admin
+    group: www-data
 
 - name: create snakeoil cert
   shell: make-ssl-cert generate-default-snakeoil
@@ -47,7 +39,7 @@
     remote_src: yes
     force: no
     owner: www-data
-    group: admin
+    group: www-data
     mode: 0440
 
 - name: copy snakeoil ssl cert for first start
@@ -57,7 +49,7 @@
     remote_src: yes
     force: no
     owner: www-data
-    group: admin
+    group: www-data
     mode: 0440
 
 - name: sync ssl certs
