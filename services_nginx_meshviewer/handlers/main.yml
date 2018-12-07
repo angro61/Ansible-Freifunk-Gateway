@@ -3,3 +3,8 @@
   systemd:
     name: nginx
     state: restarted
+    
+- name: restart cron
+  systemd:
+    name: cron
+    state: restarted
