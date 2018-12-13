@@ -1,7 +1,7 @@
 ---
 
 # grafana
-grafana_data_path: /opt/data/grafana
+grafana_data_path: /srv/grafana
 grafana_log: /var/log/grafana
 grafana_ip: 127.0.0.1
 grafana_port: 3000
