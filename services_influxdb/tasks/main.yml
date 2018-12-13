@@ -20,6 +20,9 @@
 
 - name: Install InfluxDB packages
   apt: name=influxdb state=present
+  
+- name: Install InfluxDB client packages
+  apt: name=influxdb-client state=present
 
 - name: create influxdb data folders
   file:
