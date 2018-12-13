@@ -29,10 +29,10 @@
     group: influxdb
     mode: 0775
   with_items:
-      - {{ influxdb_data_path }}
-      - {{ influxdb_data_path }}/data
-      - {{ influxdb_data_path }}/meta
-      - {{ influxdb_data_path }}/wal
+      - "{{ influxdb_data_path }}"
+      - "{{ influxdb_data_path }}/data"
+      - "{{ influxdb_data_path }}/meta"
+      - "{{ influxdb_data_path }}/wal"
 
 - name: configure influxdb
   template: src=influxdb.conf.j2 dest=/etc/influxdb/influxdb.conf
