@@ -47,7 +47,7 @@ yanic_repondd_remotehost: "[ipv6]:10001"
 yanic_influxdb:
 - enable: false
   # dummy entry - new mapserver
-  host: http://195.201.17.35:8086
+  host: http://93.241.53.98:8086
   database: ffsu
   username: ""
   password: ""
