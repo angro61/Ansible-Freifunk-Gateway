@@ -30,8 +30,8 @@
     mode: 0775
   with_items:
       - "{{ grafana_data_path }}"
-      - "{{ influxdb_data_path }}/data"
-      - "{{ influxdb_data_path }}//plugins"
+      - "{{ grafana_data_path }}/data"
+      - "{{ grafana_data_path }}//plugins"
 
 
 - name: configure grafana
