@@ -158,7 +158,9 @@ hostname = "{{ ansible_hostname }}"
 
   [http]
     enabled = true
-    bind-address = "127.0.0.1:8086"
+    # host should protect port i.e. firewalling
+    bind-address = ":8086"
+    #bind-address = "127.0.0.1:8086"
     auth-enabled = false
     #log-enabled = true
     log-enabled = false
