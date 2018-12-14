@@ -1,5 +1,18 @@
 ---
 
+# nginx
+
+http_domain_external: "freifunk-rhein-sieg.net"
+http_domain_internal: "freifunk-rhein-sieg.net"
+
+http_grafana_prefix: "grafana"
+http_influx_prefix: "influx"
+
+http_nginx_external: "{{ http_grafana_prefix }}.{{ http_domain_external }}"
+http_nginx_internal: "{{ http_influx_prefix }}.{{ http_domain_internal }}"
+nginx_path: "/srv/www/{{ http_nginx_external }}"
+
+
 # grafana
 grafana_data_path: /srv/grafana
 grafana_log: /var/log/grafana
