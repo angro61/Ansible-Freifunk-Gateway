@@ -1,2 +1,1 @@
-# ansible role for installation and configuration of influxdb
-w.i.p.
+# Role for installation of influxdb in combine with collectd and grafana
