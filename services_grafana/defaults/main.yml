@@ -10,7 +10,7 @@ http_influx_prefix: "influx"
 
 http_nginx_external: "{{ http_grafana_prefix }}.{{ http_domain_external }}"
 http_nginx_internal: "{{ http_influx_prefix }}.{{ http_domain_internal }}"
-nginx_path: "/srv/www/{{ http_nginx_external }}"
+nginx_data_path: "/srv/www/{{ http_nginx_external }}"
 
 
 # grafana
