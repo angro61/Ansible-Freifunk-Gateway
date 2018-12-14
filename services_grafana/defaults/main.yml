@@ -18,13 +18,13 @@ grafana_data_path: /srv/grafana
 grafana_log: /var/log/grafana
 grafana_ip: 127.0.0.1
 grafana_port: 3000
-grafana_domain: localhost
+grafana_domain: {{ http_grafana_prefix }}.{{ http_domain_external }}
 grafana_sess: grafana_sess
 grafana_admin_user: admin
 grafana_admin_default_pass: admin
 grafana_secret_key: 
 grafana_smtp_host: localhost
-grafana_smtp_user: technik@freifunk-rhein-sieg.net
+grafana_smtp_user: technik@{{ http_domain_external }}
 grafana_smtp_password:
-grafana_smtp_sender: grafana@freifunk-rhein-sieg.net
+grafana_smtp_sender: grafana@{{ http_domain_external }}
 
