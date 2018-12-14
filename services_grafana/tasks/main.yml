@@ -39,6 +39,18 @@
     owner: www-data
     group: www-data
 
+- name: create nginx data folders
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: 0775
+  with_items:
+      - "{{ nginx_data_path }}"
+      - "{{ nginx_data_path }}/{{ inventory_hostname_short }}.{{ http_domain_external }}"
+      
+
 - name: create snakeoil cert
   shell: make-ssl-cert generate-default-snakeoil
   args:
@@ -105,6 +117,13 @@
     mode: 0644
     owner: root
     group: root
+  notify: restart nginx
+
+- name: write nginx configuration grafana_vhost.conf
+  template:
+    src: grafana_vhost.conf.j2
+    dest: /etc/nginx/conf.d/grafana_vhost.conf
+   mode: 0644
   notify: restart nginx
 
 - name: configure systemd unit nginx
