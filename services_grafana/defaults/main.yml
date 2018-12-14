@@ -15,6 +15,7 @@ nginx_data_path: "/srv/www/{{ http_nginx_external }}"
 
 # grafana
 grafana_data_path: /srv/grafana
+grafana_web_path: /usr/share/grafana/public/
 grafana_log: /var/log/grafana
 grafana_ip: 127.0.0.1
 grafana_port: 3000
