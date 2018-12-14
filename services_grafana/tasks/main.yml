@@ -123,12 +123,12 @@
   notify: restart nginx
 
 - name: Letsencrypt-Zertifikat beantragen und installieren
-  shell: cd /usr/src && if [ ! -e simp_le ]; then git clone https://github.com/zenhack/simp_le ; fi && cd simp_le && ./bootstrap.sh && if [ ! -e venv/bin/python ]; then ./venv.sh; fi && export PATH=/usr/src/simp_le/venv/bin:$PATH && cd /etc/ssl && simp_le --email {{freifunk.email}} -f account_key.json -f key.pem -f fullchain.pem -d {{bind_zonemaster.server}}:{{ nginx_data_path }} -d {{ inventory_hostname_short }}.{{ http_domain_external }}:{{ nginx_data_path }}
+  shell: cd /usr/src && if [ ! -e simp_le ]; then git clone https://github.com/zenhack/simp_le ; fi && cd simp_le && ./bootstrap.sh && if [ ! -e venv/bin/python ]; then ./venv.sh; fi && export PATH=/usr/src/simp_le/venv/bin:$PATH && cd /etc/ssl && simp_le --email technik@{{http_domain_external}} -f account_key.json -f key.pem -f fullchain.pem -d {{http_domain_external}}:{{ grafana_web_path }} -d {{ inventory_hostname_short }}.{{ http_domain_external }}:{{ grafana_web_path }}
   notify: restart nginx
   when: sslcert.stat.exists == False
 
 - name: Cronjob für Zertifikatserneuerung
-  cron: name="simp_le" weekday="2" hour="20" minute="0" job="cd /etc/ssl && PATH=/usr/src/simp_le/venv/bin:/usr/sbin:/usr/bin:/sbin:/bin simp_le --email {{freifunk.email}} -f account_key.json -f key.pem -f fullchain.pem -d {{bind_zonemaster.server}}:{{ nginx_data_path }}  && systemctl reload nginx"
+  cron: name="simp_le" weekday="2" hour="20" minute="0" job="cd /etc/ssl && PATH=/usr/src/simp_le/venv/bin:/usr/sbin:/usr/bin:/sbin:/bin simp_le --email technik@{{http_domain_external}} -f account_key.json -f key.pem -f fullchain.pem -d {{http_domain_external}}:{{ grafana_web_path }}  && systemctl reload nginx"
 
 
 - name: configure systemd unit nginx
