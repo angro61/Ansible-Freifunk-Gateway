@@ -24,7 +24,7 @@ grafana_admin_user: admin
 grafana_admin_default_pass: admin
 grafana_secret_key: 
 grafana_smtp_host: localhost
-grafana_smtp_user: technik@freifunk-siegburg.de
+grafana_smtp_user: technik@freifunk-rhein-sieg.net
 grafana_smtp_password:
-grafana_smtp_sender: grafana@freifunk-siegburg.de
+grafana_smtp_sender: grafana@freifunk-rhein-sieg.net
 
