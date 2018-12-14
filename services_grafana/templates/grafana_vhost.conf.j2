@@ -16,6 +16,6 @@ server {
     include /etc/nginx/snippets/letsencrypt-acme-challenge.conf;
     include /etc/nginx/snippets/proxy_pass.conf
     
-    root {{ nginx_path }};
+    root {{ nginx_data_path }}/html;
     index index.html index.htm;
 }
