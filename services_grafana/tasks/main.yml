@@ -81,6 +81,15 @@
     owner: root
     group: root
 
+- name: copy proxy_pass.conf to snippets
+  copy:
+    src: proxy_pass.conf
+    dest: /etc/nginx/snippets/proxy_pass.conf
+    mode: 0644
+    owner: root
+    group: root
+
+
 - name: write letsencrypt-acme-challenge.conf to snippets
   template:
     src: letsencrypt-acme-challenge.conf.j2
