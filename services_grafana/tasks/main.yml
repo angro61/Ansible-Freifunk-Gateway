@@ -24,7 +24,6 @@
     mode: 0775
   with_items:
       - "{{ nginx_data_path }}"
-      - "{{ nginx_data_path }}/{{ inventory_hostname_short }}.{{ http_domain_external }}"
       
 
 
