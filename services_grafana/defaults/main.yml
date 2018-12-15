@@ -25,7 +25,7 @@ grafana_admin_user: admin
 grafana_admin_default_pass: admin
 grafana_secret_key: 
 grafana_smtp_host: localhost
-grafana_smtp_user: grafana@{{ http_domain_external }}
+grafana_smtp_user: "grafana@{{ http_domain_external }}"
 grafana_smtp_password:
-grafana_smtp_sender: grafana@{{ http_domain_external }}
+grafana_smtp_sender: "grafana@{{ http_domain_external }}"
 
