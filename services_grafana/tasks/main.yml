@@ -175,8 +175,14 @@
 
 
 - name: configure grafana
-  template: src=grafana.ini.j2 dest=/etc/grafana/grafana.ini
+  template: src=grafana.ini.j2 dest=/etc/grafana/grafana.ini.default
 
+- name: copy grafana smtp default template
+  template: src=grafana_smtp.default.j2 dest=/etc/grafana/grafana_smtp.default
+
+- name: join grafana ini templates on host
+  shell: cat /etc/grafana/grafana.ini.default /etc/grafana/grafana_smtp.ini > /etc/grafana/grafana.ini
+  
 - name: Enable grafana
   service: name=grafana-server enabled=yes
   notify:
