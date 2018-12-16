@@ -160,13 +160,13 @@ check_for_updates = true
 #################################### Anonymous Auth ##########################
 [auth.anonymous]
 # enable anonymous access
-;enabled = false
+enabled = true
 
 # specify organization name that should be used for unauthenticated users
 ;org_name = Main Org.
 
 # specify role for unauthenticated users
-;org_role = Viewer
+org_role = Viewer
 #################################### Github Auth ##########################
 [auth.github]
 ;enabled = false
@@ -194,14 +194,14 @@ check_for_updates = true
 
 #################################### Auth Proxy ##########################
 [auth.proxy]
-;enabled = false
-;header_name = X-WEBAUTH-USER
-;header_property = username
-;auto_sign_up = true
+enabled = false
+header_name = X-WEBAUTH-USER
+header_property = username
+auto_sign_up = false
 
 #################################### Basic Auth ##########################
 [auth.basic]
-;enabled = true
+enabled = true
 
 #################################### Auth LDAP ##########################
 [auth.ldap]
