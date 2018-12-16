@@ -11,8 +11,14 @@ server {
     listen 443 ssl;
     listen [::]:443 ssl;
     server_name {{ http_nginx_external }} {{ http_nginx_internal }};
-    ssl_certificate     /etc/nginx/ssl/{{ inventory_hostname_short }}.{{ http_domain_external }}/fullchain.pem;
-    ssl_certificate_key /etc/nginx/ssl/{{ inventory_hostname_short }}.{{ http_domain_external }}/privkey.pem;
+    # selfsigned dummy
+    # ssl_certificate     /etc/nginx/ssl/{{ inventory_hostname_short }}.{{ http_domain_external }}/fullchain.pem;
+    # ssl_certificate_key /etc/nginx/ssl/{{ inventory_hostname_short }}.{{ http_domain_external }}/privkey.pem;
+
+    # letsenrypt
+    ssl_certificate /etc/ssl/fullchain.pem;
+    ssl_certificate_key /etc/ssl/key.pem;
+    
     include /etc/nginx/snippets/gzip.conf;
     include /etc/nginx/snippets/proxy_pass.conf;
     include /etc/nginx/snippets/letsencrypt-acme-challenge.conf;
