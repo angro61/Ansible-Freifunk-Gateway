@@ -27,8 +27,8 @@ server {
     # ssl_certificate_key /etc/nginx/ssl/{{ inventory_hostname_short }}.{{ http_domain_external }}/privkey.pem;
 
     # letsenrypt
-    ssl_certificate /etc/ssl/fullchain.pem
-    ssl_certificate_key /etc/ssl/key.pem
+    ssl_certificate /etc/ssl/fullchain.pem;
+    ssl_certificate_key /etc/ssl/key.pem;
     
     include /etc/nginx/snippets/gzip.conf;
     include /etc/nginx/snippets/letsencrypt-acme-challenge.conf;
