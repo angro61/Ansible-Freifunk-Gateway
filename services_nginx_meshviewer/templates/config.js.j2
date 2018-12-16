@@ -29,10 +29,10 @@ module.exports = function () {
     ],
     'globalInfos': [
       {
-        'name': 'Statistik - letzte Woche',
-        'href': 'https://{{ http_grafana_prefix }}.{{ http_domain_external }}/dashboard/db/freifunk-rsk-global?panelId=11&orgId=2&from=now-7d&to=now&var-INTERVAL=1d&fullscreen',
-        'image': 'https://{{ http_grafana_prefix }}.{{ http_domain_external }}/render/dashboard-solo/db/freifunk-rsk-global?panelId=11&orgId=1&from=now-7d&to=now&var-INTERVAL=1d&theme=light&width=650&height=350&tz=Europe%2FBerlin',
-        'title': 'Statistik - letzte Woche'
+        'name': 'Statistik - letzte drei Tage',
+        'href': 'https://{{ http_grafana_prefix }}.{{ http_domain_external }}/dashboard/db/freifunk-rsk-global?panelId=11&orgId=2&from=now-2d&to=now&var-INTERVAL=1d&fullscreen',
+        'image': 'https://{{ http_grafana_prefix }}.{{ http_domain_external }}/render/dashboard-solo/db/freifunk-rsk-global?panelId=11&orgId=1&from=now-2d&to=now&var-INTERVAL=1d&theme=light&width=650&height=350&tz=Europe%2FBerlin',
+        'title': 'Statistik - letzte drei Tage'
       }
     ],
     // String or array of data provider are supported
