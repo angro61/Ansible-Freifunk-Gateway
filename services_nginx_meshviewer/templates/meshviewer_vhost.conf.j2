@@ -11,6 +11,7 @@ server {
     listen 80;
     listen [::]:80;
     server_name {{ http_meshviewer_external }} {{ http_meshviewer_internal }};
+    root {{ meshviewer_path }};
 
     include /etc/nginx/snippets/redirect-to-ssl.conf;
     include /etc/nginx/snippets/letsencrypt-acme-challenge.conf;
