@@ -5,7 +5,7 @@ use warnings;
 use JSON::Parse 'json_file_to_perl';
 #use Data::Dumper;
 use DateTime;
-use Date::Manip;
+#use Date::Manip;
 
 # define default runtime vars
 my $filename = $ARGV[0];
