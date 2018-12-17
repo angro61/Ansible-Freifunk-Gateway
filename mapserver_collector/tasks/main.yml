@@ -15,6 +15,7 @@
     - /opt/data/fgw02
     - /opt/data/fgw03
     - /opt/data/fgw04
+    - /opt/data/mapsu
 
 - name: copy jsoncheck.pl to /opt/data
   copy:
