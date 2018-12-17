@@ -11,7 +11,7 @@ use Date::Manip;
 my $filename = "nodes.json";
 
 
-# Read JSON data from STDIN
+# Read JSON data from FILE
 my $content = json_file_to_perl ($filename);
 
 #print ref $content, "\n";
