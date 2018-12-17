@@ -20,7 +20,7 @@ if ( ! $filename ) {
 # test, if file exist
 if ( -f $filename ){
 
-        # Read JSON data from STDIN
+        # Read JSON data from FILE
         my $content = json_file_to_perl ($filename);
 
         #print ref $content, "\n";
