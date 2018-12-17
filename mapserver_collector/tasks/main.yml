@@ -16,6 +16,14 @@
     - /opt/data/fgw03
     - /opt/data/fgw04
 
+- name: copy jsoncheck.pl to /opt/data
+  copy:
+    src: jsoncheck.pl
+    dest: /opt/data/jsoncheck.pl
+    mode: 0744
+    owner: root
+    group: root
+
 - name: yaniccollectorcron
   template: src=yanic_collector.cron.j2 dest=/etc/cron.d/yanic_collector
   notify:
