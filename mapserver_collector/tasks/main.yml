@@ -24,6 +24,15 @@
     owner: root
     group: root
 
+- name: copy jsondump.pl to /opt/data
+  copy:
+    src: jsondump.pl
+    dest: /opt/data/jsondump.pl
+    mode: 0744
+    owner: root
+    group: root
+
+
 - name: yaniccollectorcron
   template: src=yanic_collector.cron.j2 dest=/etc/cron.d/yanic_collector
   notify:
