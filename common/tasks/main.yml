@@ -87,6 +87,8 @@
     - screen
     - ntpdate
     - ntp
+    - ethtool
+    - lsb-release
 
 
   
