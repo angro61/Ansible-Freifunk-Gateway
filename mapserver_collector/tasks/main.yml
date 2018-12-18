@@ -33,6 +33,14 @@
     owner: root
     group: root
 
+- name: copy alfred2influx.py to /opt/data
+  copy:
+    src: alfred2influx.py
+    dest: /opt/data/alfred2influx.py
+    mode: 0744
+    owner: root
+    group: root
+
 
 - name: yaniccollectorcron
   template: src=yanic_collector.cron.j2 dest=/etc/cron.d/yanic_collector
