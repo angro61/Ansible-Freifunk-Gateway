@@ -20,7 +20,7 @@
     - netifaces
 
 
-- name: Clone py-respondd repo
+- name: Clone mesh-announce repo
   git: repo=https://github.com/Freifunk-Rhein-Sieg/mesh-announce.git dest=/opt/mesh-announce/ clone=yes update=yes
 #  notify: restart respondd
 
