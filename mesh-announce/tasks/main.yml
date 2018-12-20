@@ -5,6 +5,10 @@
     state: installed
   with_items:
     - python3-pip
+    - python-ethtool
+    - ethtool
+    - lsb-release
+    - python3-netifaces
 
 - name: Install python dependencies
   pip: 
