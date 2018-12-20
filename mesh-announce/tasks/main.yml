@@ -15,11 +15,12 @@
     - psutil
     - netifaces
 
-- name: "create systemd files"
-  template: src="respondd.service.j2" dest="/lib/systemd/system/respondd.service"
-  notify: systemctl reload
 
 - name: Clone py-respondd repo
   git: repo=https://github.com/Freifunk-Rhein-Sieg/mesh-announce.git dest=/opt/mesh-announce/ clone=yes update=yes
-  notify: restart respondd
+#  notify: restart respondd
 
+
+#- name: "create systemd files"
+#  template: src="respondd.service.j2" dest="/lib/systemd/system/respondd.service"
+#  notify: systemctl reload
