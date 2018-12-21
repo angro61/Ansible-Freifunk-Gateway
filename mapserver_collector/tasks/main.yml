@@ -41,6 +41,29 @@
     owner: root
     group: root
 
+- name: copy insert_domain_tdf.pl to /opt/data
+  copy:
+    src: insert_domain_tdf.pl
+    dest: /opt/data/insert_domain_tdf.pl
+    mode: 0744
+    owner: root
+    group: root
+    
+- name: copy insert_domain_inn.pl to /opt/data
+  copy:
+    src: insert_domain_inn.pl
+    dest: /opt/data/insert_domain_inn.pl
+    mode: 0744
+    owner: root
+    group: root
+   
+- name: copy insert_domain_flu.pl to /opt/data
+  copy:
+    src: insert_domain_flu.pl
+    dest: /opt/data/insert_domain_flu.pl
+    mode: 0744
+    owner: root
+    group: root
 
 - name: yaniccollectorcron
   template: src=yanic_collector.cron.j2 dest=/etc/cron.d/yanic_collector
