@@ -1,3 +1,3 @@
 # placeholder
-# see https://github.com/ffnord/mesh-announce for more info
+# see https://github.com/Freifunk-Rhein-Sieg/mesh-announce-multidomain for more info
 # Installpath: /opt/mesh-announce
