@@ -21,7 +21,7 @@
 
 
 - name: Clone mesh-announce repo
-  git: repo=https://github.com/Freifunk-Rhein-Sieg/mesh-announce.git dest=/opt/mesh-announce/ clone=yes update=yes
+  git: repo=https://github.com/Freifunk-Rhein-Sieg/mesh-announce-multidomain.git dest=/opt/mesh-announce/ clone=yes update=yes
 #  notify: restart respondd
 
 
