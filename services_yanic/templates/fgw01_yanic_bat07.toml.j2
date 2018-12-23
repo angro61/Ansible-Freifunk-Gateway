@@ -1,18 +1,22 @@
 [respondd]
 enable           = true
-collect_interval = "2m"
-synchronize      = "2m"
+collect_interval = "5m"
+synchronize      = "5m"
 
 
 [[respondd.interfaces]]
 ifname = "bat07"
 port = 10001
-ip_address = "fe80::547f:7aff:fe68:4401"
+ip_address = "fe80::804b:e0ff:fef3:8ec"
 # default
 multicast_address = "ff02::2:1001"
 # or
 #multicast_address = "ff05::2:1001"
 #send_no_request = false
+
+
+[respondd.sites.ffsu]
+domains = ["su-nk"]
 
 
 [webserver]
@@ -29,7 +33,7 @@ offline_after  = "10m"
 [[nodes.output.nodelist]]
 enable = true
 path = "/var/www/html/meshviewer/data/07_nodelist.json"
-[nodes.output.nodelist.filter]
+#[nodes.output.nodelist.filter]
 #no_owner = false
 
 [[nodes.output.meshviewer-ffrgb]]
@@ -55,6 +59,13 @@ nodes_path     = "/var/www/html/meshviewer/data/07_nodes.json"
 graph_path     = "/var/www/html/meshviewer/data/07_graph.json"
 
 [nodes.output.meshviewer.filter]
+no_owner = true
+
+[[nodes.output.nodelist]]
+enable   = false
+path = "/var/www/html/meshviewer/data/07_nodelist.json"
+
+[nodes.output.nodelist.filter]
 no_owner = true
 
 [database]
@@ -83,3 +94,4 @@ address  = "[ipv6]:10001"
 [[database.connection.logging]]
 enable   = false
 path = "/var/log/07_yanic.log"
+
