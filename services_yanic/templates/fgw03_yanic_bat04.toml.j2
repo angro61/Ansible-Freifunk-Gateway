@@ -7,13 +7,15 @@ synchronize      = "2m"
 [[respondd.interfaces]]
 ifname = "bat04"
 port = 10001
-ip_address = "fe80::94f5:4bff:fe35:36b7"
+ip_address = "fe80::6481:18ff:fe82:820e"
 # default
 multicast_address = "ff02::2:1001"
 # or
 #multicast_address = "ff05::2:1001"
 #send_no_request = true
 
+[respondd.sites.ffsu]
+domains = ["su-sa"]
 
 [webserver]
 enable  = true
@@ -29,7 +31,7 @@ offline_after  = "10m"
 [[nodes.output.nodelist]]
 enable = true
 path = "/var/www/html/meshviewer/data/04_nodelist.json"
-[nodes.output.nodelist.filter]
+#[nodes.output.nodelist.filter]
 #no_owner = false
 
 [[nodes.output.meshviewer-ffrgb]]
@@ -55,6 +57,13 @@ nodes_path     = "/var/www/html/meshviewer/data/04_nodes.json"
 graph_path     = "/var/www/html/meshviewer/data/04_graph.json"
 
 [nodes.output.meshviewer.filter]
+no_owner = true
+
+[[nodes.output.nodelist]]
+enable   = false
+path = "/var/www/html/meshviewer/data/04_nodelist.json"
+
+[nodes.output.nodelist.filter]
 no_owner = true
 
 [database]
