@@ -6,20 +6,27 @@ use JSON::Parse 'json_file_to_perl';
 #use Data::Dumper;
 use DateTime;
 #use Date::Manip;
+use File::Copy qw(copy);
 
 # define default runtime vars
 my $filename = $ARGV[0];
+my $destfile = $ARGV[1];
+my $debug = 1;
 
 # my $filename = "nodes.json";
 
 if ( ! $filename ) {
-                print "USAGE: ./jsoncheck.pl <filename>\n";
+                print "USAGE: ./jsoncheck.pl <filename> <destfilename>\n";
                 exit 0;
         }
 
 # test, if file exist
 if ( -f $filename ){
 
+        if ( $debug ) {
+                print "Filename : ".$filename;
+                print "Dest     : ".$destfile;
+        }
         # Read JSON data from FILE
         my $content = json_file_to_perl ($filename);
 
@@ -66,6 +73,10 @@ if ( -f $filename ){
 
                if ( $days > 1 ){
                         print "... sending alert...\n";
+               } else {
+
+                # copy .json to destpath
+                        copy $filename, $destfile;
                }
 
            } # if key
@@ -76,4 +87,3 @@ if ( -f $filename ){
 
 
 exit 0;
-
