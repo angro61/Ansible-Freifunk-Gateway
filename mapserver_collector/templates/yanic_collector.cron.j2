@@ -7,11 +7,11 @@
 
 # gw's tdf
 # tdf4
-* * * * * root wget -U yanic_collector -q http://4.fftdf.de/graph.json -O /opt/data/tdf4/graph.json >/dev/null 2>&1
-* * * * * root wget -U yanic_collector -q http://4.fftdf.de/meshviewer.json -O /opt/data/tdf4/meshviewer.json >/dev/null 2>&1
-* * * * * root wget -U yanic_collector -q http://4.fftdf.de/nodelist.json -O /opt/data/tdf4/nodelist.json >/dev/null 2>&1
-#* * * * * root wget -U yanic_collector -q http://4.fftdf.de/nodes.json -O /opt/data/tdf4/nodes.json; /opt/data/insert_domain_tdf.pl /opt/data/tdf4/nodes.json >/dev/null 2>&1
-* * * * * root wget -U yanic_collector -q http://4.fftdf.de/nodes.json -O /opt/data/tdf4/nodes.json >/dev/null 2>&1
+* * * * * root wget -U yanic_collector -q http://4.fftdf.de/graph.json -O /opt/data/tdf4/graph.json; /opt/data/jsoncheck.pl /opt/data/tdf4/graph.json /opt/data/tdf4/tdf/graph.json >/dev/null 2>&1
+* * * * * root wget -U yanic_collector -q http://4.fftdf.de/meshviewer.json -O /opt/data/tdf4/meshviewer.json; /opt/data/jsoncheck.pl opt/data/tdf4/meshviewer.json opt/data/tdf4/tdf/meshviewer.json >/dev/null 2>&1
+* * * * * root wget -U yanic_collector -q http://4.fftdf.de/nodelist.json -O /opt/data/tdf4/nodelist.json; /opt/data/jsoncheck.pl /opt/data/tdf4/nodelist.json /opt/data/tdf4/tdf/nodelist.json  >/dev/null 2>&1
+#* * * * * root wget -U yanic_collector -q http://4.fftdf.de/nodes.json -O /opt/data/tdf4/nodes.json; /opt/data/insert_domain_tdf.pl /opt/data/tdf4/nodes.json; /opt/data/jsoncheck.pl /opt/data/tdf4/nodes.json /opt/data/tdf4/tdf/nodes.json >/dev/null 2>&1
+* * * * * root wget -U yanic_collector -q http://4.fftdf.de/nodes.json -O /opt/data/tdf4/nodes.json; /opt/data/jsoncheck.pl /opt/data/tdf4/nodes.json /opt/data/tdf4/tdf/nodes.json >/dev/null 2>&1
 # tdf5
 * * * * * root wget -U yanic_collector -q http://5.fftdf.de/graph.json -O /opt/data/tdf5/graph.json >/dev/null 2>&1
 * * * * * root wget -U yanic_collector -q http://5.fftdf.de/meshviewer.json -O /opt/data/tdf5/meshviewer.json >/dev/null 2>&1
