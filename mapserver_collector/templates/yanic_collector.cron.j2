@@ -19,8 +19,8 @@
 # tdf6
 * * * * * root wget -U yanic_collector -q http://6.fftdf.de/graph.json -O /opt/data/tdf6/graph.json; cp /opt/data/tdf6/graph.json /opt/data/tdf6/flu/graph.json >/dev/null 2>&1
 * * * * * root wget -U yanic_collector -q http://6.fftdf.de/meshviewer.json -O /opt/data/tdf6/meshviewer.json; cp /opt/data/tdf6/meshviewer.json /opt/data/tdf6/flu/meshviewer.json >/dev/null 2>&1
-* * * * * root wget -U yanic_collector -q http://6.fftdf.de/nodelist.json -O /opt/data/tdf6/nodelist.json; cp /opt/data/tdf6/nodelist.json /opt/data/tdf6/inn/nodelist.json >/dev/null 2>&1
-* * * * * root wget -U yanic_collector -q http://6.fftdf.de/nodes.json -O /opt/data/tdf6/nodes.json; /opt/data/jsoncheck.pl /opt/data/tdf6/nodes.json /opt/data/tdf6/inn/nodes.json>/dev/null 2>&1
+* * * * * root wget -U yanic_collector -q http://6.fftdf.de/nodelist.json -O /opt/data/tdf6/nodelist.json; cp /opt/data/tdf6/nodelist.json /opt/data/tdf6/flu/nodelist.json >/dev/null 2>&1
+* * * * * root wget -U yanic_collector -q http://6.fftdf.de/nodes.json -O /opt/data/tdf6/nodes.json; /opt/data/jsoncheck.pl /opt/data/tdf6/nodes.json /opt/data/tdf6/flu/nodes.json>/dev/null 2>&1
 # alter mapserver su
 * * * * * root wget -U yanic_collector -q https://map.freifunk-siegburg.de/data/graph.json  -O /opt/data/mapsu/graph.json >/dev/null 2>&1
 * * * * * root wget -U yanic_collector -q https://map.freifunk-siegburg.de/data/nodelist.json  -O /opt/data/mapsu/nodelist.json >/dev/null 2>&1
